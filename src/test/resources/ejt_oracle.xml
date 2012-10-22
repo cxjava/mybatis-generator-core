@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="E:/jars/ojdbc/ojdbc14_10.2.0.4.jar" />
+	
+	<context id="MyBatis3" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.MybatisCriteriaPlugin" />
+		<!-- <plugin type="org.mybatis.generator.plugins.MapperConfigPlugin">
+			<property name="targetPackage" value="sqlmap" />
+			<property name="targetProject" value="../mybatis-generator-testor/src/main/java" />
+		</plugin> -->
+		<plugin type="org.mybatis.generator.plugins.MybatisServicePlugin">
+			<property name="targetPackage" value="com.whty.ejt.service" />
+			<property name="implementationPackage" value="com.whty.ejt.service.impl" />
+			<property name="targetProject" value="../mybatis-generator-testor/src/main/java" />
+			<!-- <property name="enableInsert" value="true" />
+			<property name="enableUpdateByExampleSelective" value="true" />
+			<property name="enableInsertSelective" value="true" />
+			<property name="enableUpdateByPrimaryKey" value="true" />
+			<property name="enableDeleteByPrimaryKey" value="true" />
+			<property name="enableDeleteByExample" value="true" />
+			<property name="enableUpdateByPrimaryKeySelective" value="true" />
+			<property name="enableUpdateByExample" value="true" /> -->
+		</plugin>
+		<!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:orcl"
+			userId="cx" password="cx">
+		</jdbcConnection> -->
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@192.168.8.249:1521:BROADCAS"
+			userId="eota2" password="ty1234">
+		</jdbcConnection>
+		
+		<javaModelGenerator targetPackage="com.whty.ejt.pojo" targetProject="../mybatis-generator-testor/src/main/java">
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.whty.ejt.sqlmap" targetProject="../mybatis-generator-testor/src/main/java">
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.whty.ejt.dao"
+			targetProject="../mybatis-generator-testor/src/main/java">
+		</javaClientGenerator>
+
+		<!-- <table tableName="T_APP_INFO" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="APP_INFO" />
+			<generatedKey column="id" sqlStatement="select SEQ_APP_INFO.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_DELIVER" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="DELIVER" />
+			<generatedKey column="id" sqlStatement="select SEQ_DELIVER.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_KEY" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="KEY" />
+			<generatedKey column="id" sqlStatement="select SEQ_KEY.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_MO" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="MO" />
+			<generatedKey column="id" sqlStatement="select SEQ_MO.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_MODULE_CONF" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="MODULE_CONF" />
+			<generatedKey column="id" sqlStatement="select SEQ_MODULE_CONF.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_MT" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="MT" />
+			<generatedKey column="id" sqlStatement="select SEQ_MT.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_RECORD_PAY" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="RECORD_PAY" />
+			<generatedKey column="id" sqlStatement="select SEQ_RECORD_PAY.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_RECORD" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="RECORD" />
+			<generatedKey column="id" sqlStatement="select SEQ_RECORD.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_SUBMIT" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="SUBMIT" />
+			<generatedKey column="id" sqlStatement="select SEQ_SUBMIT.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_SUBMIT_REPORT" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="SUBMIT_REPORT" />
+			<generatedKey column="id" sqlStatement="select SEQ_SUBMIT_REPORT.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_SUBMIT_RESPONSE" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="SUBMIT_RESPONSE" />
+			<generatedKey column="id" sqlStatement="select SEQ_SUBMIT_RESPONSE.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_SYSTEM_CONF" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="SYSTEM_CONF" />
+			<generatedKey column="id" sqlStatement="select SEQ_SYSTEM_CONF.NEXTVAL from dual" />
+		</table>
+		<table tableName="T_USER_APP" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="USER_APP" />
+			<generatedKey column="id" sqlStatement="select SEQ_USER_APP.NEXTVAL from dual" />
+		</table> -->
+		<table tableName="BASE_FIELDS" schema="EOTA2">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="BASE_FIELDS" />
+			<generatedKey column="FIELD_ID" sqlStatement="select sys_guid() from dual" />
+		</table>
+	</context>
+</generatorConfiguration>

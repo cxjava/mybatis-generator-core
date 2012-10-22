@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="E:/jars/mysql-connector-java-5.1.13-bin.jar" />
+
+	<context id="Ibatis2Java5" targetRuntime="Ibatis2Java5">
+
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.AnnotationPlugin" />
+		<plugin type="org.mybatis.generator.plugins.IbatisCriteriaPlugin" />
+		<plugin type="org.mybatis.generator.plugins.IbatisServicePlugin">
+			<property name="targetPackage" value="com.whty.datacheck.service" />
+			<property name="implementationPackage" value="com.whty.datacheck.service.impl" />
+			<property name="targetProject" value="../mybatis-generator-testor/src/main/java" />
+			<property name="enableInsert" value="true" />
+			<property name="enableUpdateByExampleSelective" value="true" />
+			<property name="enableInsertSelective" value="true" />
+			<property name="enableUpdateByPrimaryKey" value="true" />
+			<property name="enableDeleteByPrimaryKey" value="true" />
+			<property name="enableDeleteByExample" value="true" />
+			<property name="enableUpdateByPrimaryKeySelective" value="true" />
+			<property name="enableUpdateByExample" value="true" />
+		</plugin>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/bank"
+			userId="root" password="xinxin" />
+
+		<javaModelGenerator targetPackage="com.whty.datacheck.pojo" targetProject="../mybatis-generator-testor/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.whty.datacheck.sqlmap" targetProject="../mybatis-generator-testor/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- XMLMAPPER SPRING -->
+		<javaClientGenerator type="SPRING" implementationPackage="com.whty.datacheck.dao.impl"
+			targetPackage="com.whty.datacheck.dao" targetProject="../mybatis-generator-testor/src/main/java">
+		</javaClientGenerator>
+
+
+		<table tableName="trade">
+			<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" />
+		</table>
+	</context>
+
+</generatorConfiguration>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="E:/jars/ojdbc/ojdbc14_10.2.0.4.jar" />
+	
+	<context id="MyBatis3" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.MybatisCriteriaPlugin" />
+		<plugin type="org.mybatis.generator.plugins.MybatisServicePlugin">
+			<property name="targetPackage" value="com.whty.tsm.service" />
+			<property name="implementationPackage" value="com.whty.tsm.service.impl" />
+			<property name="targetProject" value="../mybatis-generator-testor/src/main/java" />
+			<!-- <property name="enableInsert" value="true" />
+			<property name="enableInsertSelective" value="true" />
+			<property name="enableUpdateByExampleSelective" value="true" />
+			<property name="enableUpdateByPrimaryKey" value="true" />
+			<property name="enableDeleteByPrimaryKey" value="true" />
+			<property name="enableDeleteByExample" value="true" />
+			<property name="enableUpdateByPrimaryKeySelective" value="true" />
+			<property name="enableUpdateByExample" value="true" /> -->
+		</plugin>
+		<!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:orcl"
+			userId="cx" password="cx">
+		</jdbcConnection> -->
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@192.168.8.249:1521:BROADCAS"
+			userId="tsm" password="tsm"> 
+		</jdbcConnection>
+		
+		<javaModelGenerator targetPackage="com.whty.tsm.pojo" targetProject="../mybatis-generator-testor/src/main/java">
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="sqlmap" targetProject="../mybatis-generator-testor/src/main/resources">
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.whty.tsm.dao"
+			targetProject="../mybatis-generator-testor/src/main/java">
+		</javaClientGenerator>
+
+		<table tableName="USER_INFO" schema="tsm">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="USER_INFO" />
+			<generatedKey  column="ID" sqlStatement="select SEQ_USER_INFO.NEXTVAL from dual" />
+		</table>
+		<!-- <table tableName="CARD_GSM_KEY" schema="tsm">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="CARD_GSM_KEY" />
+			<generatedKey  column="ID" sqlStatement="select SEQ_CARD_GSM_KEY.NEXTVAL from dual" />
+		</table>
+		<table tableName="SD_INFO" schema="tsm">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="SD_INFO" />
+			<generatedKey  column="ID" sqlStatement="select SEQ_SD_INFO.NEXTVAL from dual" />
+		</table>
+		<table tableName="LOAD_FILE_INFO" schema="tsm">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="LOAD_FILE_INFO" />
+			<generatedKey  column="ID" sqlStatement="select SEQ_LOAD_FILE_INFO.NEXTVAL from dual" />
+			<ignoreColumn column="LOAD_FILE_DATA" />
+		</table>
+		<table tableName="APP_RELATION" schema="tsm">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="APP_RELATION" />
+			<generatedKey  column="ID" sqlStatement="select SEQ_APP_RELATION.NEXTVAL from dual" />
+		</table> -->
+		<!-- <table tableName="APPLETE_INFO" schema="tsm">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="APPLETE_INFO" />
+			<generatedKey  column="ID" sqlStatement="select SEQ_APPLETE_INFO.NEXTVAL from dual" />
+		</table> -->
+		<!-- <table tableName="APP_INFO" schema="tsm">
+			<property name="ignoreQualifiersAtRuntime" value="true" />
+			<property name="runtimeTableName" value="APP_INFO" />
+			<generatedKey  column="ID" sqlStatement="select SEQ_APP_INFO.NEXTVAL from dual" />
+		</table> -->
+	</context>
+</generatorConfiguration>

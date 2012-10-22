@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="E:/jars/sqlserver/jtds-1.2.5.jar" />
+	<!-- <classPathEntry location="E:/jars/sqlserver/msbase.jar" />
+	<classPathEntry location="E:/jars/sqlserver/mssqlserver.jar" />
+	<classPathEntry location="E:/jars/sqlserver/msutil.jar" /> -->
+	<context id="Ibatis2Java5" targetRuntime="Ibatis2Java5">
+
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.AnnotationPlugin" />
+		<plugin type="org.mybatis.generator.plugins.IbatisCriteriaPlugin" />
+		<plugin type="org.mybatis.generator.plugins.IbatisServicePlugin">
+			<property name="targetPackage" value="com.whty.datacheck.service" />
+			<property name="implementationPackage" value="com.whty.datacheck.service.impl" />
+			<property name="targetProject" value="../mybatis-generator-testor/src/main/java" />
+			<property name="enableInsert" value="true" />
+			<property name="enableUpdateByExampleSelective" value="true" />
+			<property name="enableInsertSelective" value="true" />
+			<property name="enableUpdateByPrimaryKey" value="true" />
+			<property name="enableDeleteByPrimaryKey" value="true" />
+			<property name="enableDeleteByExample" value="true" />
+			<property name="enableUpdateByPrimaryKeySelective" value="true" />
+			<property name="enableUpdateByExample" value="true" />
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.SqlMapConfigPlugin">
+			<property name="targetPackage" value="config.ibatis" />
+			<property name="targetProject" value="../mybatis-generator-testor/src/main/resources" />
+		</plugin>
+		
+		<!-- <jdbcConnection driverClass="com.microsoft.jdbc.sqlserver.SQLServerDriver" 
+		connectionURL="jdbc:microsoft:sqlserver://192.168.8.249:1433;DatabaseName=datacheck"
+			userId="sa" password="sa">
+		</jdbcConnection> -->
+		<jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver" 
+		connectionURL="jdbc:jtds:sqlserver://192.168.8.249:1433/datacheck"
+			userId="sa" password="sa">
+		</jdbcConnection>
+
+		<javaModelGenerator targetPackage="com.whty.datacheck.pojo" targetProject="../mybatis-generator-testor/src/main/java">
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.whty.datacheck.sqlmap" targetProject="../mybatis-generator-testor/src/main/java">
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="SPRING" targetPackage="com.whty.datacheck.dao" implementationPackage="com.whty.datacheck.dao.impl"
+			targetProject="../mybatis-generator-testor/src/main/java">
+		</javaClientGenerator>
+		
+		<table tableName="T_ck_scheme_template">
+			<property name="runtimeTableName" value="ck_scheme_template" />
+		</table>
+		<table tableName="T_ck_scheme">
+			<property name="runtimeTableName" value="ck_scheme" />
+		</table>
+		
+	</context>
+
+</generatorConfiguration>

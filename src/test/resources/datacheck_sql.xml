@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="E:/jars/sqlserver2000/sqlserver2000/msbase.jar" />
+	<classPathEntry location="E:/jars/sqlserver2000/sqlserver2000/mssqlserver.jar" />
+	<classPathEntry location="E:/jars/sqlserver2000/sqlserver2000/msutil.jar" />
+	<context id="Ibatis2Java5" targetRuntime="Ibatis2Java5">
+
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.AnnotationPlugin" />
+		<plugin type="org.mybatis.generator.plugins.IbatisCriteriaPlugin" />
+		<plugin type="org.mybatis.generator.plugins.IbatisServicePlugin">
+			<property name="targetPackage" value="com.whty.datacheck.service" />
+			<property name="implementationPackage" value="com.whty.datacheck.service.impl" />
+			<property name="targetProject" value="../mybatis-generator-testor/src/main/java" />
+			<property name="enableInsert" value="true" />
+			<property name="enableUpdateByExampleSelective" value="true" />
+			<property name="enableInsertSelective" value="true" />
+			<property name="enableUpdateByPrimaryKey" value="true" />
+			<property name="enableDeleteByPrimaryKey" value="true" />
+			<property name="enableDeleteByExample" value="true" />
+			<property name="enableUpdateByPrimaryKeySelective" value="true" />
+			<property name="enableUpdateByExample" value="true" />
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.SqlMapConfigPlugin">
+			<property name="targetPackage" value="config.ibatis" />
+			<property name="targetProject" value="../mybatis-generator-testor/src/main/resources" />
+		</plugin>
+		
+		<jdbcConnection driverClass="com.microsoft.jdbc.sqlserver.SQLServerDriver" connectionURL="jdbc:microsoft:sqlserver://192.168.8.249:1433;DatabaseName=datacheck"
+			userId="sa" password="sa">
+		</jdbcConnection>
+		<!-- <jdbcConnection driverClass="com.microsoft.jdbc.sqlserver.SQLServerDriver" connectionURL="jdbc:microsoft:sqlserver://127.0.0.1:1433;DatabaseName=datacheck"
+			userId="sa" password="sa">
+		</jdbcConnection> -->
+
+		<javaModelGenerator targetPackage="com.whty.datacheck.pojo" targetProject="../mybatis-generator-testor/src/main/java">
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.whty.datacheck.sqlmap" targetProject="../mybatis-generator-testor/src/main/java">
+		</sqlMapGenerator>
+
+		<javaClientGenerator type="SPRING" targetPackage="com.whty.datacheck.dao" implementationPackage="com.whty.datacheck.dao.impl"
+			targetProject="../mybatis-generator-testor/src/main/java">
+		</javaClientGenerator>
+
+		<table tableName="T_base_dept">
+		<property name="runtimeTableName" value="base_dept" />
+		</table>
+		
+		<table tableName="T_base_role">
+		<property name="runtimeTableName" value="base_role" />
+		</table>
+		
+		<table tableName="T_base_sys_module">
+		<property name="runtimeTableName" value="base_sys_module" />
+		</table>
+		
+		<table tableName="T_base_role_module_map">
+		<property name="runtimeTableName" value="base_role_module_map" />
+		</table>
+		
+		<table tableName="T_base_user">
+		<property name="runtimeTableName" value="base_user" />
+		</table>
+		
+		<table tableName="T_base_user_role_map">
+		<property name="runtimeTableName" value="base_user_role_map" />
+		</table>
+		
+		<table tableName="T_ck_columns_condition">
+		<property name="runtimeTableName" value="ck_columns_condition" />
+		</table>
+		
+		<table tableName="T_ck_columns_config">
+		<property name="runtimeTableName" value="ck_columns_config" />
+		</table>
+		
+		<table tableName="T_ck_items">
+		<property name="runtimeTableName" value="ck_items" />
+		</table>
+		
+		<table tableName="T_ck_report">
+		<property name="runtimeTableName" value="ck_report" />
+		</table>
+		
+		<table tableName="T_ck_scheme">
+		<property name="runtimeTableName" value="ck_scheme" />
+		</table>
+		
+		<table tableName="T_ck_scheme_template">
+		<property name="runtimeTableName" value="ck_scheme_template" />
+		</table>
+		
+		<table tableName="T_ck_scheme_template_map">
+		<property name="runtimeTableName" value="ck_scheme_template_map" />
+		</table>
+		
+		<table tableName="T_colums">
+		<property name="runtimeTableName" value="colums" />
+		</table>
+		
+		<table tableName="T_task_ticket">
+		<property name="runtimeTableName" value="task_ticket" />
+		</table>
+		
+		<table tableName="T_task_ticket_detail">
+		<property name="runtimeTableName" value="task_ticket_detail" />
+		</table>
+		
+		<table tableName="T_data_bill">
+		<property name="runtimeTableName" value="data_bill" />
+		</table>
+		
+		<table tableName="T_data_bill_detail">
+		<property name="runtimeTableName" value="data_bill_detail" />
+		</table>
+		
+		<table tableName="T_date_limit">
+		<property name="runtimeTableName" value="date_limit" />
+		</table>
+		
+		<table tableName="T_iccid_ck_history">
+		<property name="runtimeTableName" value="iccid_ck_history" />
+		</table>
+		
+		<table tableName="T_msg">
+		<property name="runtimeTableName" value="msg" />
+		</table>
+		
+		<table tableName="T_operate_log">
+		<property name="runtimeTableName" value="operate_log" />
+		</table>
+		
+		<table tableName="T_opt_rule">
+		<property name="runtimeTableName" value="opt_rule" />
+		</table>
+		
+		<table tableName="T_qa_bill_manage">
+		<property name="runtimeTableName" value="qa_bill_manage" />
+		</table>
+		
+		<table tableName="T_qa_bill_detail">
+		<property name="runtimeTableName" value="qa_bill_detail" />
+		</table>
+		
+		<table tableName="T_script_manage">
+		<property name="runtimeTableName" value="script_manage" />
+		</table>
+		
+		<table tableName="T_script_param">
+		<property name="runtimeTableName" value="script_param" />
+		</table>
+		
+		<table tableName="T_sp_grade_compare">
+		<property name="runtimeTableName" value="sp_grade_compare" />
+		</table>
+		
+		<table tableName="T_sp_info">
+		<property name="runtimeTableName" value="sp_info" />
+		</table>
+		
+		<table tableName="T_sp_auto_opt_rule_map">
+		<property name="runtimeTableName" value="sp_auto_opt_rule_map" />
+		</table>
+		
+		<table tableName="T_sp_opt_rule_map">
+		<property name="runtimeTableName" value="sp_opt_rule_map" />
+		</table>
+		
+		
+		
+	</context>
+
+</generatorConfiguration>

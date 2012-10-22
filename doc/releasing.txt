@@ -1,0 +1,85 @@
+Releasing MyBatis Generator
+===========================
+
+Core Release Process
+====================
+
+Setup encrypted server passwords for Maven as shown here:
+
+   http://code.google.com/p/mybatis/wiki/ProcessRelease
+   
+Also, make sure that SVN and GPG are in your path, and that your gpg key
+has been published properly.
+
+1. (optional) mvn release:prepare -DdryRun=true
+
+   Make sure the new POMs look OK (pom.xml.next and pom.xml.tag)
+   
+2. (if you did #1) mvn release:clean
+
+3. mvn release:prepare [-Dusername=xxx -Dpassword=xxx]
+
+The username and password properties are only required if you have not saved
+your SVN authentication information.
+
+This build might fail if the the newly versioned artifacts don't get installed
+in the local repository properly.  If so, then run "mvn install" for the individual
+projects: core, maven-plugin, systests-common (in that order).  Then, resume the
+release with
+
+  mvn release:prepare -Dresume=true [-Dusername=xxx -Dpassword=xxx]
+
+4. mvn release:perform
+
+This step should upload to sonatype, as well as uploading the core bundle to google code.  If
+the google upload fails, you will need to upload the bundle manually.
+
+5. On google code, set the prior version of the generator to deprecated
+
+6. Log in to sonatype at http://oss.sonatype.org
+
+Go to "staging repositories" - you should see the uploaded artifacts.
+Close, and then release the staging repository.
+
+7. Update the DTD on the site if required
+
+8. Send out the announcement notice
+
+Eclipse Release Process
+=======================
+
+1. Build the new version of the Eclipse feature:
+  - Increment the version number of the feature
+  - Increment the version number of any plugin that has changed
+  - Run the build.xml script in the build project (creates a new feature version
+    at \temp\ibator.build\etc.)
+  - Add the new feature and plugin jars to the IbatorUpdateSite project
+  - Add the new version of the feature to site.xml in the IbatorUpdateSite
+    project (manually)
+
+2. Run through the manual test scripts for the Eclipse feature
+
+3. Zip the contents of the update site (remove project metadata)
+  
+4. Commit everything
+
+5. Make an SVN label
+
+6. Run mvn assembly:assembly on the ibator-core project to create the base zip file.  Put the
+   new base Ibator zip file in /www/people.apache.org/builds/ibatis/alpha
+
+7. Put the new zipped eclipse site in /www/people.apache.org/builds/ibatis/alpha
+
+9. Copy the new versions of ibator-core and ibator-maven-plugin from the local maven repo
+   to the Apache repo at ???
+
+10. Update /www/ibatis.apache.org/doc/tools/ibator from SVN (this updates the documentation)
+
+11. Update /www/ibatis.apache.org/tools/ibator from SVN (this updates the Eclipse site)
+
+12. Update the DTD (if required)
+
+13. Update the iBATIS web site
+
+14. Send out the announcement to dev@ and user@
+
