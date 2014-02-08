@@ -130,7 +130,7 @@ public class MybatisServicePlugin extends PluginAdapter {
 
 		pojoType = new FullyQualifiedJavaType(pojoUrl + "." + tableName);
 
-		pojoCriteriaType = new FullyQualifiedJavaType(pojoUrl + "." + "Criteria");
+		pojoCriteriaType = new FullyQualifiedJavaType(pojoUrl + "." + tableName + "Example");
 		listType = new FullyQualifiedJavaType("java.util.List");
 		Interface interface1 = new Interface(interfaceType);
 		TopLevelClass topLevelClass = new TopLevelClass(serviceType);
@@ -227,7 +227,7 @@ public class MybatisServicePlugin extends PluginAdapter {
 		topLevelClass.addSuperInterface(interfaceType);
 
 		if (enableAnnotation) {
-			topLevelClass.addAnnotation("@Service");
+			topLevelClass.addAnnotation("@Service(\"" + tableName.substring(0,1).toLowerCase() + tableName.substring(1) + "Service\")");
 			topLevelClass.addImportedType(service);
 		}
 		// 添加引用dao
@@ -459,9 +459,9 @@ public class MybatisServicePlugin extends PluginAdapter {
 
 			method.addParameter(0, new Parameter(pojoType, "record"));
 			method.addParameter(1, new Parameter(pojoCriteriaType, "example"));
-			if(method.getName().equals("updateByExampleSelective")||method.getName().equals("updateByExample")){
-				return "record, example.getCondition()";
-			}
+//			if(method.getName().equals("updateByExampleSelective")||method.getName().equals("updateByExample")){
+//				return "record, example.getCondition()";
+//			}
 			return "record, example";
 		default:
 			break;
