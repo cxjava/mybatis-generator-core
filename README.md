@@ -1,5 +1,4 @@
-===============================================================================
-Overview
+# Overview
 --------
 MyBatis Generator (MBG) is a code generator for the MyBatis (and iBATIS) SQL
 mapping framefork.  MBG will introspect database tables (through JDBC
@@ -10,13 +9,13 @@ generated objects.
 For full documentation, please refer to the user's manual at
 doc/html/index.html in this distribution.
 
-Dependencies
+# Dependencies
 ------------
 There are no dependencies beyond the JRE.  JRE 5.0 or above is required.
 Also required is a JDBC driver that implements the DatabaseMetaData interface,
 especially the "getColumns" and "getPrimaryKeys" methods.
 
-Support
+# Support
 -------
 Support is provided through the user mailing list.  Mail
 questions or bug reports to:
